@@ -4,63 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedList
+namespace LinkedLists
 {
-    class Program
+    public class Node
     {
-        static void Main(string[] args)
+        public int data;
+        public Node next;
+        public Node(int d)
         {
-            Console.ReadLine();
+            this.data = d;
         }
+    }
 
-        public class Node
+    public class LinkedList
+    {
+        Node head;
+        public void append(int data)
         {
-            public int data;
-            public Node next;
-            public Node(int d)
+            if (head == null)
             {
-                this.data = d;
+                head = new Node(data);
+                return;
             }
+            Node current = head;
+            while (current.next != null)
+            {
+                current = current.next;
+            }
+            current.next = new Node(data);
         }
 
-        public class LinkedList
+        public void prepend(int data)
         {
-            Node head;
-            public void append(int data)
+            Node newHead = new Node(data);
+            newHead.next = head;
+            head = newHead;
+        }
+
+        public void deleteWithValue(int data)
+        {
+            if (head == null) return;
+            Node current = head;
+            while (current.next != null)
             {
-                if (head == null)
+                if (current.next.data == data)
                 {
-                    head = new Node(data);
+                    current.next = current.next.next;
                     return;
                 }
-                Node current = head;
-                while (current.next != null)
-                {
-                    current = current.next;
-                }
-                current.next = new Node(data);
-            }
-
-            public void prepend(int data)
-            {
-                Node newHead = new Node(data);
-                newHead.next = head;
-                head = newHead;
-            }
-
-            public void deleteWithValue(int data)
-            {
-                if (head == null) return;
-                Node current = head;
-                while (current.next != null)
-                {
-                    if (current.next.data == data)
-                    {
-                        current.next = current.next.next;
-                        return;
-                    }
-                    current = current.next;
-                }
+                current = current.next;
             }
         }
     }

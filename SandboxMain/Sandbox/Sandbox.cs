@@ -12,25 +12,25 @@ namespace Sandbox
         {
             Console.ReadLine();
         }
-
+        
         public class Node
         {
             public int data;
             public Node next;
             public Node(int d)
             {
-                this.data = d;
+
             }
         }
-
+        
         public class LinkedList
         {
             Node head;
-            public void append(int data)
+            public void append(int d)
             {
                 if (head == null)
                 {
-                    head = new Node(data);
+                    head = new Node(d);
                     return;
                 }
                 Node current = head;
@@ -38,23 +38,23 @@ namespace Sandbox
                 {
                     current = current.next;
                 }
-                current.next = new Node(data);
+                current.next = new Node(d);
             }
 
-            public void prepend(int data)
+            public void prepend(int d)
             {
-                Node newHead = new Node(data);
+                Node newHead = new Node(d);
                 newHead.next = head;
                 head = newHead;
             }
 
-            public void deleteWithValue(int data)
+            public void delete(int d)
             {
                 if (head == null) return;
                 Node current = head;
                 while (current.next != null)
                 {
-                    if (current.next.data == data)
+                    if (current.next.data == d)
                     {
                         current.next = current.next.next;
                         return;

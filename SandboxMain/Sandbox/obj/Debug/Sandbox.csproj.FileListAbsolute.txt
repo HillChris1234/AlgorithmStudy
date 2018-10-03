@@ -1,3 +1,6 @@
 C:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.exe.config
 C:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\ConsoleApplication1.exe
 C:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\ConsoleApplication1.pdb
+C:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\Sandbox.csprojResolveAssemblyReference.cache
+C:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.exe
+C:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.pdb
