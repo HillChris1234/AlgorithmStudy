@@ -4,3 +4,10 @@ C:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\ConsoleApplication1.pdb
 C:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\Sandbox.csprojResolveAssemblyReference.cache
 C:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.exe
 C:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.pdb
+F:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\Sandbox.csprojAssemblyReference.cache
+F:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\Sandbox.csproj.CoreCompileInputs.cache
+F:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.exe.config
+F:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.exe
+F:\Projects\Sandbox\SandboxMain\Sandbox\bin\Debug\ConsoleApplication1.pdb
+F:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\ConsoleApplication1.exe
+F:\Projects\Sandbox\SandboxMain\Sandbox\obj\Debug\ConsoleApplication1.pdb
