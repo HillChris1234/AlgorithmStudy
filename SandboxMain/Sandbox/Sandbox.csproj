@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinkedList.cs" />
+    <Compile Include="AirplaneSeats.cs" />
     <Compile Include="Sandbox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

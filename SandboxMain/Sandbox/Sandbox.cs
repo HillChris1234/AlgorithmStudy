@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,58 +11,49 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
+            int[] myArray = new int[] { 2, 8, 3, 5, 4, 9, 6 };
+            myArray = QuickSort(myArray, 0, myArray.Length - 1);
             Console.ReadLine();
         }
         
-        public class Node
+        static int[] QuickSort(int[] inArray, int left, int right)
         {
-            public int data;
-            public Node next;
-            public Node(int d)
+            int pivot = (left + right) / 2;
+            int l = left, r = right;
+            while (l < r)
             {
-
+                while (inArray[l] < inArray[pivot])
+                {
+                    l++;
+                }
+                while (inArray[r] > inArray[pivot])
+                {
+                    r--;
+                }
+                if (l < r)
+                {
+                    inArray[l] = inArray[l] + inArray[r];
+                    inArray[r] = inArray[l] - inArray[r];
+                    inArray[l] = inArray[l] - inArray[r];
+                    l++;
+                    r--;
+                }
             }
+            if (left < pivot)
+            {
+                QuickSort(inArray, left, pivot);
+                QuickSort(inArray, pivot, right);
+            }
+            return inArray;
         }
-        
-        public class LinkedList
-        {
-            Node head;
-            public void append(int d)
-            {
-                if (head == null)
-                {
-                    head = new Node(d);
-                    return;
-                }
-                Node current = head;
-                while (current.next != null)
-                {
-                    current = current.next;
-                }
-                current.next = new Node(d);
-            }
 
-            public void prepend(int d)
-            {
-                Node newHead = new Node(d);
-                newHead.next = head;
-                head = newHead;
-            }
+        static int[] SwapArray(int[] inArray, int a, int b)
+        {   
+            inArray[a] = inArray[a] + inArray[b];
+            inArray[b] = inArray[a] - inArray[b];
+            inArray[a] = inArray[a] - inArray[b];
 
-            public void delete(int d)
-            {
-                if (head == null) return;
-                Node current = head;
-                while (current.next != null)
-                {
-                    if (current.next.data == d)
-                    {
-                        current.next = current.next.next;
-                        return;
-                    }
-                    current = current.next;
-                }
-            }
+            return inArray;
         }
     }
 }
