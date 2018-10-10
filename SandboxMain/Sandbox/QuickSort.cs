@@ -12,7 +12,7 @@ namespace QuickSort
         
         static public void SortQuick(int[] arr, int left, int right)
         {
-            if (left >= right) return;
+            if (left >= right) return; // terminate if the left point is higher than the right point.
             int pivot = arr[(left + right) / 2]; // get pivot value
             int index = partition(arr, left, right, pivot); // get partition point
             SortQuick(arr, left, index - 1); // recurse on left side
@@ -23,14 +23,14 @@ namespace QuickSort
         {
             while (left <= right) // move pointers in towards each other
             {
-                while (array[left] < pivot) left++; // move left pointer
-                while (array[right] > pivot) right--; // move right pointer
+                while (array[left] < pivot) left++; // move left pointer until it hits a number higher than the pivot
+                while (array[right] > pivot) right--; // move right pointer until it hits a number lower than the pivot
                 if (left <= right) // if the left pointer is less than the right pointer
                 {   
-                    int t = array[left];
+                    int t = array[left]; // Swap the numbers
                     array[left] = array[right];
                     array[right] = t;
-                    left++;
+                    left++; //Move the pointers
                     right--;
                 }
             }
