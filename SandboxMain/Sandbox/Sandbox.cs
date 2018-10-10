@@ -28,75 +28,58 @@ namespace Sandbox
     
     class Node
     {
-        Node left, right;
-        int data;
-        public Node(int data)
+        public int data;
+        public Node next, prev;
+        public Node(int v)
         {
-            this.data = data;
+            data = v;
         }
-        public void Insert(int value)
+    }
+
+    class LinkedList
+    {
+        Node head;
+        public void Append(int v)
         {
-            if (value <= data)
+            if (head == null)
             {
-                if (left == null)
-                {
-                    left = new Node(value);
-                } else
-                {
-                    left.Insert(value);
-                }
-            } else
-            {
-                if (right == null)
-                {
-                    right = new Node(value);
-                }
-                else
-                {
-                    right.Insert(value);
-                }
+                head = new Node(v);
+                return;
             }
-        }
-        public Boolean contains(int value)
-        {
-            if (value == data)
+            Node tmpNode = head;
+            while (tmpNode.next != null)
             {
-                return true;
+                tmpNode = tmpNode.next;
             }
-            else if (value < data)
-            {
-                if (left == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return left.contains(value);
-                }
-            }
-            else
-            {
-                if (right == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return right.contains(value);
-                }
-            }
+            tmpNode.next = new Node(v);
+            tmpNode.next.next = head.prev;
         }
 
-        public void printInOrder()
+        public void Prepend(int v)
         {
-            if (left != null)
+            Node tmpHead = new Node(v);
+            tmpHead.next = head;
+            head = tmpHead;
+            Node c = head;
+            while (c.next != null)
             {
-                left.printInOrder();
+                c = c.next;
             }
-            Console.WriteLine(data);
-            if (right != null)
+            head.prev = c.next;
+        }
+
+        public void DeleteWithValue(int v)
+        {
+            if (head == null) return;
+            Node c = head;
+            while (c.next != null)
             {
-                right.printInOrder();
+                if (c.next.data == v)
+                {
+                    c.next = c.next.next;
+                    return;
+                }
+                c = c.next;
             }
         }
     }

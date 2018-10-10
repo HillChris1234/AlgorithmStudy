@@ -42,14 +42,8 @@ namespace BinaryTree
         public bool Contains(int v)
         {
             if (v == data) return true;
-            if (v < data)
-            {
-                return left == null ? false : left.Contains(v);
-            }
-            else
-            {
-                return right == null ? false : right.Contains(v);
-            }
+            if (v < data) return left == null ? false : left.Contains(v);
+                else return right == null ? false : right.Contains(v);
         }
 
         public void PrintInOrder()
