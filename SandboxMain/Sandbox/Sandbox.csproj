@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="LinkedList.cs" />
     <Compile Include="AirplaneSeats.cs" />
+    <Compile Include="BinaryTree.cs" />
     <Compile Include="QuickSort.cs" />
     <Compile Include="Sandbox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
