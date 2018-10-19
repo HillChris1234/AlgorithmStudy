@@ -9,37 +9,52 @@ namespace Sandbox
 {
     public class Program
     {
-        static Node sample_tree()
-        {
-            Node root = 
-                new Node("A",
-                    new Node("B",
-                        new Node("C"), new Node("D")),
-                    new Node("E",
-                        new Node("F"), new Node("G",
-                                                new Node("H"), null)));
-            return root;
-        }
         public static void Main(string[] args)
         {
-            Node tree = sample_tree();
-            Console.WriteLine("BFS --> "); bfs_traversal(tree);
+            Node a = new Node("A");
+            Node b = new Node("B");
+            Node c = new Node("C");
+            Node d = new Node("D");
+            Node e = new Node("E");
+            Node f = new Node("F");
+            Node g = new Node("G");
+            a.nodes.Add(b);
+            a.nodes.Add(c);
+            c.nodes.Add(d);
+            c.nodes.Add(e);
+            c.nodes.Add(f);
+            f.nodes.Add(g);
+
+            Console.WriteLine("BFS --> "); nodeconnect(a, g);
         }
 
-        static void bfs_traversal(Node node)
+        static bool nodeconnect(Node s, Node d)
         {
+            if (s == d) return true;
             Queue<Node> q = new Queue<Node>();
-            q.Enqueue(node);
+            List<Node> v = new List<Node>();
+            q.Enqueue(s);
             while (q.Count > 0)
             {
-                node = q.Dequeue();
-                Console.Write(node.data + " ");
-                
-                if (node.left != null)
-                    q.Enqueue(node.left);
-                if (node.right != null)
-                    q.Enqueue(node.right);
+                s = q.Dequeue();
+                if (s == d) return true;
+                foreach (Node n in s.nodes)
+                {
+                    if (!v.Contains(n))
+                    {
+                        if (n == d)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            v.Add(n);
+                            q.Enqueue(n);
+                        }
+                    }
+                }
             }
+            return false;
         }
     }
 
@@ -58,27 +73,7 @@ namespace Sandbox
         public Node(string data)
         {
             this.data = data;
-            this.nodes = null;
-        }
-    }
-
-    public class NodeBinary
-    {
-        public Node left;
-        public Node right;
-        public string data;
-        public NodeBinary(string data, Node left, Node right)
-        {
-            this.data = data;
-            this.left = left;
-            this.right = right;
-        }
-
-        public NodeBinary(string data)
-        {
-            this.data = data;
-            this.left = null;
-            this.right = null;
+            this.nodes = new List<Node>();
         }
     }
 }
